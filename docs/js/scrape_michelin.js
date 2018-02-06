@@ -6,16 +6,16 @@ var fs = require('fs');
 
 //Recover all the url of the stars' restaurents and store those in restaurants_list array
 function urls_restaurant_scrape(url,callback){
-	 var urls_restaurant=[];
-  	 request(url, function(err,resp,html){  
-  		var $=cheerio.load(html);
-    	$('.poi-card-link').each(function(){
-      		 var url_temp = "https://restaurant.michelin.fr";
-      		 url_temp+=$(this).attr('href');
-      		 urls_restaurant.push(url_temp);              
-      	});
-  		callback(urls_restaurant);     //when it's finish, we catch the restaurant information urls put before in the urls_restaurant array
-  	});
+   var urls_restaurant=[];
+     request(url, function(err,resp,html){  
+      var $=cheerio.load(html);
+      $('.poi-card-link').each(function(){
+           var tmp= "https://restaurant.michelin.fr";
+           tmp+=$(this).attr('href');
+           urls_restaurant.push(url_temp);              
+        });
+      callback(urls_restaurant);     //when it's finish, we catch the restaurant information urls put before in the urls_restaurant array
+    });
 }
 
 //This function allows to scrap all of the informatiosn we need from the detail page of the restaurent
