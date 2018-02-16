@@ -40,6 +40,9 @@ class ProductRow extends React.Component {
       <tr>
         <td>{resaurant_name}</td>
         <td>{product.chef}</td>
+        <td>{product.stars}</td>
+        <td>{product.name_of_deal}</td>
+        
       </tr>
     );
   }
@@ -72,6 +75,8 @@ class ProductTable extends React.Component {
           <tr>
             <th>Nom du restaurant</th>
             <th>Chef</th>
+            <th>Nombre d'étoiles</th>
+             <th>Description</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
