@@ -59,6 +59,9 @@ function push_the_deals_of_special_offer(restaurant,monJson,indice){
     	 	 		 	 	 fs.writeFile('la_fourchette_stars_deals.json',JSON.stringify(lf_json_deal),'utf-8',function(err){  //Store the data in the json file
              	 				 if(err) return console.log(err);             			 		
             		 		});
+                             fs.writeFile('C:/Users/Maxime/Documents/S8/Web/top-chef/my-app2/src/la_fourchette_stars_deals.json',JSON.stringify(lf_json_deal),'utf-8',function(err){  //Store the data in the json file
+                                 if(err) return console.log(err);                               
+                            });
     	 	 		 	 }    	 	 		 	 
     	 	 		 }
          		 }         	 	
