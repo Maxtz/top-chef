@@ -6,8 +6,8 @@ import './index.css';
 
 var data = require('./la_fourchette_stars_deals.json'); // forward slashes will depend on the file location
 var monjs=data.la_fourchette_deals;
-var datatest = require('./test.json'); // forward slashes will depend on the file location
-const monjstest=datatest.la_fourchette_deals;
+/*var datatest = require('./test.json'); // forward slashes will depend on the file location
+const monjstest=datatest.la_fourchette_deals;*/
 for(var i = 0; i < data.la_fourchette_deals.length; i++) {
     
   
@@ -20,7 +20,7 @@ class ProductCategoryRow extends React.Component {
     const stars = this.props.stars;
     return (
       <tr>
-        <th colSpan="2">
+        <th colSpan="5">
           {stars}
         </th>
       </tr>
@@ -38,9 +38,11 @@ class ProductRow extends React.Component {
 
     return (
       <tr>
-        <td>{resaurant_name}</td>
-        <td>{product.chef}</td>
+        <td style={{color: 'blue'}}>{resaurant_name}</td>
+        <td>{product.city}</td>
         <td>{product.stars}</td>
+        <td>{product.chef}</td>
+        
         <td>{product.name_of_deal}</td>
         
       </tr>
@@ -74,9 +76,11 @@ class ProductTable extends React.Component {
         <thead>
           <tr>
             <th>Nom du restaurant</th>
-            <th>Chef</th>
+              <th>Ville</th>            
             <th>Nombre d'étoiles</th>
+            <th>Chef</th>
              <th>Description</th>
+
           </tr>
         </thead>
         <tbody>{rows}</tbody>
@@ -85,27 +89,12 @@ class ProductTable extends React.Component {
   }
 }
 
-class SearchBar extends React.Component {
-  render() {
-    return (
-      <form>
-        <input type="text" placeholder="Search..." />
-        <p>
-          <input type="checkbox" />
-          {' '}
-          Only show products in stock
-        </p>
-      </form>
-    );
-  }
-}
 
 class FilterableProductTable extends React.Component {
   render() {
     return (
       <div>
-        <SearchBar />
-        <ProductTable products={this.props.products} />
+               <ProductTable products={this.props.products} />
       </div>
     );
   }
