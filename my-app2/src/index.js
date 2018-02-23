@@ -13,7 +13,13 @@ for(var i = 0; i < data.la_fourchette_deals.length; i++) {
   
     console.log("Name:" + data.la_fourchette_deals[i].resaurant_name );
 }
-
+var bgColors = { "Default": "#81b71a",
+                    "Blue": "#00B1E1",
+                    "Cyan": "#37BC9B",
+                    "Green": "#8CC152",
+                    "Red": "#E9573F",
+                    "Yellow": "#F6BB42",
+};
 
 class ProductCategoryRow extends React.Component {
   render() {
@@ -32,20 +38,33 @@ class ProductRow extends React.Component {
   render() {
     const product = this.props.product;
     const resaurant_name = product.resaurant_name ;
-      <span style={{color: 'red'}}>
-        {product.resaurant_name}
-      </span>;
+     
 
     return (
-      <tr>
-        <td style={{color: 'blue'}}>{resaurant_name}</td>
-        <td>{product.city}</td>
-        <td>{product.stars}</td>
-        <td>{product.chef}</td>
+      <tr  style={{backgroundColor: "rgb(120,120,120)"}}>
+
+        <td >{resaurant_name}</td>
+        <td>  </td>
+        <td  >{product.city}</td>
+        <td></td>
+        <td >{product.stars}</td>
+        <td></td>
+
+        <td >{product.chef}</td>
+        <td></td>
+
+       
+         
+
         
-        <td>{product.name_of_deal}</td>
+       
+        <td > <a target="_blank"  style={{color: 'black'}}  style={{backgroundColor: "rgb(128,128,128)"},{color: 'black'}} href={product.url_restaurant}>{product.name_of_deal}</a></td>
+        
         
       </tr>
+
+
+
     );
   }
 }
@@ -75,16 +94,23 @@ class ProductTable extends React.Component {
       <table>
         <thead>
           <tr>
-            <th>Nom du restaurant</th>
-              <th>Ville</th>            
-            <th>Nombre d'étoiles</th>
-            <th>Chef</th>
-             <th>Description</th>
+           <fieldset class="column-layout"  ><th>Nom du restaurant</th></fieldset>
+            <td></td>
+             <fieldset class="column-layout"> <th>Ville</th></fieldset>
+              <td></td>          
+           <fieldset class="column-layout"> <th>Nombre d'étoiles</th></fieldset>
+            <td></td>
+            <fieldset class="column-layout"><th>Chef</th></fieldset>
+            <td></td>
+
+            <fieldset class="column-layout"> <th >Description : cliquez sur l'offre pour aller sur le lien</th></fieldset>
 
           </tr>
+
         </thead>
         <tbody>{rows}</tbody>
       </table>
+
     );
   }
 }

@@ -27,7 +27,14 @@ function la_fourchette_id_resto(name,monJson,indice,done){
 
 function push_the_deals_of_special_offer(restaurant,monJson,indice){
 	 la_fourchette_id_resto(restaurant,monJson,indice,function(id_lafourchette){		
-		 var deal_of_id_restaurant_api_url= "https://m.lafourchette.com/api/restaurant/"+id_lafourchette+"/sale-type";
+		 var deal_of_id_restaurant_api_url= String("https://m.lafourchette.com/api/restaurant/"+id_lafourchette+"/sale-type");
+          /*var options = {
+        'url': String(deal_of_id_restaurant_api_url),
+           headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+         }
+};*/
+
 		 var xmlhttp = new XMLHttpRequest();	 	 
 	 	 xmlhttp.onreadystatechange = function() {
     		 if (this.readyState == 4 && this.status == 200) {    	 	 	 
@@ -42,6 +49,14 @@ function push_the_deals_of_special_offer(restaurant,monJson,indice){
     	 	 		 	 	 var address= monJson.restaurants[indice].address;
     	 	 		 	 	 var city= monJson.restaurants[indice].city;
     	 	 		 	 	 var zip= monJson.restaurants[indice].zipcode;
+                          
+                             var url_resto= "https://www.lafourchette.com/restaurant/"+restaurant+"/"+id_lafourchette;
+
+
+
+
+
+
     	 	 		 	 	 var stared_deal = {
 				 		 	 "resaurant_name": restaurant,
 				 			 "id_restaurant": id_lafourchette,
@@ -51,7 +66,8 @@ function push_the_deals_of_special_offer(restaurant,monJson,indice){
 				 			 "stars" : stars,
                              "address" :address,
                              "city":city,
-                             "zipcode":zip
+                             "zipcode":zip,
+                             "url_restaurant" :url_resto
 
 							 };
     	 	 		 	 	 lf_json_deal.la_fourchette_deals.push(stared_deal);

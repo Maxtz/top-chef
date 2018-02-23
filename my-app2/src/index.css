@@ -1,3 +1,38 @@
 body {
-    padding: 5px
+background-image:url(back3.png) ;
+background-opacity:0.03;
+background-repeat:no-repeat;
+text-align: center;
+  background-size: cover;
+font-family: Verdana, sans-serif;
+ font-weight: bold;
+text-decoration: none; 
+}
+
+.column-layout {
+  display: table;
+text-align: center;
+font-family: Verdana, sans-serif;
+background-color: rgb(153, 153, 102);
+border-radius: 10px;
+
+  border-collapse: separate;
+
+background-position:center center;
+ box-shadow: 125 125 125 1px rgba(0, 0, 0, 0.15) inset;
+border: 2px rgb(250, 0, 0) ;
+}
+
+h1{
+
+backgroundColor: rgb(120,120,120);
+}
+trait_dessus
+{
+border-top: 1px solid #000;
+width : 700px;
+} 
+
+.fieldset{
+text-align: center;
 }
